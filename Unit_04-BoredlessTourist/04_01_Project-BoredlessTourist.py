@@ -24,10 +24,21 @@ def add_attraction(destination, attraction):
     return
 
 
+def find_attractions(destination, interests):
+    dest_index = get_destination_index(destination)
+    attractions_in_city = attractions[dest_index]
+    attractions_with_interest = []
+    for att in attractions_in_city:
+        for interest in interests:
+            if interest in att[1] and att not in attractions_with_interest:
+                attractions_with_interest.append(att[0])
+    return attractions_with_interest
+
+
 add_attraction('Los Angeles, USA', ['Venice Beach', ['beach']])
 add_attraction("Paris, France", ["the Louvre", ["art", "museum"]])
 add_attraction("Paris, France", ["Arc de Triomphe", ["historical site", "monument"]])
-add_attraction("Shanghai, China", ["Yu Garden", ["garden", "historcical site"]])
+add_attraction("Shanghai, China", ["Yu Garden", ["garden", "historical site"]])
 add_attraction("Shanghai, China", ["Yuz Museum", ["art", "museum"]])
 add_attraction("Shanghai, China", ["Oriental Pearl Tower", ["skyscraper", "viewing deck"]])
 add_attraction("Los Angeles, USA", ["LACMA", ["art", "museum"]])
@@ -36,4 +47,7 @@ add_attraction("São Paulo, Brazil", ["Pátio do Colégio", ["historical site"]]
 add_attraction("Cairo, Egypt", ["Pyramids of Giza", ["monument", "historical site"]])
 add_attraction("Cairo, Egypt", ["Egyptian Museum", ["museum"]])
 
-print(attractions)
+la_arts = find_attractions('Los Angeles, USA', ['art'])
+testvar = find_attractions(test_traveler[1], test_traveler[2])
+
+print(testvar)
