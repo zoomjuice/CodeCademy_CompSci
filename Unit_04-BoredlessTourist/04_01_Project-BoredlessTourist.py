@@ -1,3 +1,8 @@
+"""
+TODO:
+    -Refactor this garbage into classes
+"""
+
 destinations = ['Paris, France', 'Shanghai, China', 'Los Angeles, USA', 'São Paulo, Brazil', 'Cairo, Egypt']
 attractions = [[] for dest in destinations]
 
@@ -35,6 +40,17 @@ def find_attractions(destination, interests):
     return attractions_with_interest
 
 
+def get_attractions_for_traveler(traveler):
+    name = traveler[0]
+    dest = traveler[1]
+    interests = traveler[2]
+    traveler_attractions = find_attractions(dest, interests)
+    interests_message = "Hi {n}, we think you'll like these places around {dest}: ".format(n=name, dest=dest)
+    for att in traveler_attractions:
+        interests_message += '\n' + str(att)
+    return interests_message
+
+
 add_attraction('Los Angeles, USA', ['Venice Beach', ['beach']])
 add_attraction("Paris, France", ["the Louvre", ["art", "museum"]])
 add_attraction("Paris, France", ["Arc de Triomphe", ["historical site", "monument"]])
@@ -50,4 +66,4 @@ add_attraction("Cairo, Egypt", ["Egyptian Museum", ["museum"]])
 la_arts = find_attractions('Los Angeles, USA', ['art'])
 testvar = find_attractions(test_traveler[1], test_traveler[2])
 
-print(testvar)
+print(get_attractions_for_traveler(test_traveler))
