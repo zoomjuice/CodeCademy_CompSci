@@ -73,7 +73,7 @@ class Stack:
 
     # Should be inverted to is_full to be more consistent with is_empty()
     def has_space(self):
-        return True if self.size < self.limit else False
+        return self.size < self.limit
 
     def is_empty(self):
-        return True if self.size == 0 else False
+        return self.size == 0
