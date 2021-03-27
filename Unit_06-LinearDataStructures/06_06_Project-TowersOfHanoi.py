@@ -1,4 +1,16 @@
-from node import Node
+class Node:
+    def __init__(self, value, link_node=None):
+        self.value = value
+        self.link_node = link_node
+
+    def set_next_node(self, link_node):
+        self.link_node = link_node
+
+    def get_next_node(self):
+        return self.link_node
+
+    def get_value(self):
+        return self.value
 
 
 class Stack:
@@ -113,3 +125,6 @@ while right_stack.get_size() != num_disks:
             print("\n\nInvalid Move. Try Again")
 
 print("\n\nYou completed the game in {u} moves, and the optimal number of moves is {o}".format(u=num_user_moves, o=optimal_moves))
+
+
+
