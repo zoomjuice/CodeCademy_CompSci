@@ -20,8 +20,12 @@ We’ll also set up a few helper methods that will help us keep track of the que
 
 Ready, set, queue up!
 """
-from node import Node
 
 
+class Queue:
+    def __init__(self):
+        self.head = None
+        self.tail = None
 
-
+    def peek(self):
+        return self.head.get_value()
